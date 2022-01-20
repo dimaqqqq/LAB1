@@ -15,5 +15,18 @@ jobs:
     
   - name: CMake
     run: cmake -B ${{github.workspace}}/LAB1/build -DCMAKE_BUILD_TYPE=${{env.BUILD}}
+    
+  - name: Build
+    run: cmake --build ${{github.workspace}}/LAB1/build --config ${{env.BUILD}}
+    
+  - name: Testing
+    working-directory: ${{github.com}}LAB1/build
+    run: ctest -C ${{env.BUILD}}
+    
+  - name: Deploy
+    uses: actions/upload-artifact@v2
+    with:
+      name: logs-win32
+      path: ${{github.workspace}}/LAB1/build/bin/${{env.BUILD}}/wordcount.exe
 
 
