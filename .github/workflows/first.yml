@@ -8,9 +8,6 @@ env:
 jobs:
  Build-Test-Upload:
   runs-on: windows-latest
-  defaults:
-   run:
-    working-directory: ${{github.workspace}}/main/
   steps:
   - uses: actions/checkout@v2
   - name: Download GoogleTest
