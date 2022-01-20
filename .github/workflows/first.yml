@@ -12,7 +12,7 @@ jobs:
    run:
     working-directory: ${{github.workspace}}/LAB1/
   steps:
-  - uses: action/checkout@v2
+  - uses: actions/checkout@v2
   - name: Download GoogleTest
     run: git clone https://github.com/google/googletest.git
 
